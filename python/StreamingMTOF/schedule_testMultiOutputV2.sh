@@ -4,23 +4,23 @@ CUR_PATH=$(cd `dirname $0`; pwd)
 echo ${CUR_PATH}
 
 HADOOP="/home/work/tools/hadoop/hadoop-client-1.5.5/hadoop/bin/hadoop"
-PYTHON_DIR="hdfs:///user/rp-product/chenjianrong/thirdparty/python2.7.tar.gz"
+PYTHON_DIR="hdfs:///user/product/joe/thirdparty/python2.7.tar.gz"
 
 JOB_NAME="testMultiOutputV2"
 
 MAP_FILE="${JOB_NAME}_map.py"
 RED_FILE="${JOB_NAME}_red.py"
 
-INPUT_DIR="/user/rp-product/chenjianrong/temp/testMultioutput/"
-OUTPUT_DIR="/user/rp-product/chenjianrong/temp/testMultioutput_out/"
+INPUT_DIR="/user/product/joe/temp/testMultioutput/"
+OUTPUT_DIR="/user/product/joe/temp/testMultioutput_out/"
 
 $HADOOP fs -rmr $OUTPUT_DIR
 
-$HADOOP jar /home/work/tools/hadoop/hadoop-client-1.5.5/hadoop/lib/streaming-3.14.0.jar -libjars "/home/work/chenjianrong/backup/chenjianrong/survey/tools/streaming_code/StreamingMTOF.jar" \
+$HADOOP jar /home/work/tools/hadoop/hadoop-client-1.5.5/hadoop/lib/streaming-3.14.0.jar -libjars "/home/work/joe/survey/tools/streaming_code/StreamingMTOF.jar" \
     -jobconf mapred.job.name=\"$JOB_NAME\" \
-    -jobconf mapred.job.queue.name=rp-bda  \
+    -jobconf mapred.job.queue.name=myqueue  \
     -jobconf mapred.map.over.capacity.allowed=true \
-    -jobconf ares.user=\"chenjianrong\" \
+    -jobconf ares.user=\"joe\" \
     -jobconf mapred.job.map.capacity=500 \
     -jobconf mapred.job.reduce.capacity=100 \
     -jobconf mapred.map.tasks=200 \
