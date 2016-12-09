@@ -1,5 +1,6 @@
 # Python Streaming MultiOutputformat
 Implementation of MultiOutputFormat in Python Streaming
+
 Python Streaming 多路输出
 
 方法一：使用-libjars添加java自定义multioutputformat
